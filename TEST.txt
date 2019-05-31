@@ -1,0 +1,39 @@
+select
+o.orderid,c.contactname,count(c.contactname) as count
+from
+orders o inner join order details extended oe 
+on o.orderid=oe.orderid
+inner join customers c 
+on c.customerid=o.customerid
+group by
+ oe.productid
+
+select
+o.orderid,contactname,count(ContactName) as count
+from
+orders o inner join customers c
+
+on o.customerid=c.customerid
+group by
+   productid
+
+
+
+
+
+SELECT
+    people.pe_name,
+    COUNT(distinct orders.ord_id) AS num_orders,
+    COUNT(items.item_id) AS num_items
+FROM
+    people
+    INNER JOIN orders ON orders.pe_id = people.pe_id
+         INNER JOIN items ON items.ord_id = orders.ord_id
+GROUP BY
+    people.pe_id;
+
+
+
+select companyname,contactname,city,sum(unitprice) up from products p 
+join suppliers s on p.SupplierID=s.SupplierID
+group by(CompanyName),contactname,city
