@@ -36,4 +36,5 @@ GROUP BY
 
 select companyname,contactname,city,sum(unitprice) up from products p 
 join suppliers s on p.SupplierID=s.SupplierID
-group by(CompanyName),contactname,city
+group by CompanyName,contactname,city
+order by CompanyName,contactname,city
